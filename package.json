@@ -10,10 +10,6 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
-    "@types/jest": "^27.0.2",
-    "@types/node": "^16.11.7",
-    "@types/react": "^17.0.34",
-    "@types/react-dom": "^17.0.11",
     "classnames": "^2.3.1",
     "gh-pages": "^4.0.0",
     "jest-environment-jsdom": "^28.1.0",
@@ -26,6 +22,12 @@
     "tss-react": "^3.6.2",
     "typescript": "^4.4.4",
     "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.7",
+    "@types/react": "^18.0.17",
+    "@types/react-dom": "^18.0.0"
   },
   "homepage": "https://mmncit.github.io/expense-tracker/",
   "scripts": {
