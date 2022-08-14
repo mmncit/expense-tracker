@@ -7,3 +7,11 @@ export interface ExpenseItemProps extends ExpenseDateProps {
   title: string;
   amount: number;
 }
+
+export interface Expense extends Omit<ExpenseItemProps, "key"> {
+  id: string;
+}
+
+export interface ExpensesProps {
+  expenses: Expense[];
+}

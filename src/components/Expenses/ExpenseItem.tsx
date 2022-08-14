@@ -1,7 +1,7 @@
 import * as React from "react";
 import { ExpenseDate } from "./ExpenseDate";
 import "./ExpenseItem.css";
-import { ExpenseItemProps } from "./ExpenseItem.types";
+import { ExpenseItemProps } from "./Expenses.types";
 
 export const ExpenseItem = ({ date, title, amount }: ExpenseItemProps) => {
   return (

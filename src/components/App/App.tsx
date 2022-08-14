@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ExpenseItem } from "../ExpenseItem";
+import { Expenses } from "../Expenses";
 
 const dummyExpenses = [
   {
@@ -27,14 +27,7 @@ export function App() {
   return (
     <>
       <h2>Expense Master</h2>
-      {dummyExpenses.map((expense) => (
-        <ExpenseItem
-          key={expense.id}
-          date={expense.date}
-          amount={expense.amount}
-          title={expense.title}
-        />
-      ))}
+      <Expenses expenses={dummyExpenses} />
     </>
   );
 }
