@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Expenses } from "../Expenses";
+import { Expenses, NewExpenses } from "../Expenses";
+import { Expense } from "../Expenses/Expenses.types";
 
 const dummyExpenses = [
   {
@@ -24,10 +25,18 @@ const dummyExpenses = [
 ];
 
 export function App() {
+  const [expenses, setExpenses] = React.useState(dummyExpenses);
+  const addExpenseHandler = (expense: Expense) => {
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
+  };
+
   return (
     <>
       <h2>Expense Master</h2>
-      <Expenses expenses={dummyExpenses} />
+      <NewExpenses onAddExpense={addExpenseHandler} />
+      <Expenses expenses={expenses} />
     </>
   );
 }
