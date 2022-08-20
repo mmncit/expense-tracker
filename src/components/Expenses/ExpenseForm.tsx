@@ -6,36 +6,39 @@ export const ExpenseForm = ({
   onCancel,
   onSaveExpenseData,
 }: ExpenseFormProps) => {
-  const [enteredTitle, setEnteredTitle] = React.useState("");
-  const [enteredAmount, setEnteredAmount] = React.useState("");
-  const [enteredDate, setEnteredDate] = React.useState("");
+  const [userInput, setUserInput] = React.useState({
+    enteredTitle: "",
+    enteredAmount: "",
+    enteredDate: "",
+  });
 
   const handleTitleClick = ({
     target: { value },
   }: React.ChangeEvent<HTMLInputElement>) => {
-    setEnteredTitle(value);
-
-    // setUserInput(()=>{
-    //   return {...userInput,enteredTitle: event.target.value}
-    // })
+    setUserInput((prevState) => {
+      return { ...prevState, enteredTitle: value };
+    });
   };
 
-  const handleAmountClick = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEnteredAmount(event.target.value);
-    // setUserInput(()=>{
-    //   return {...userInput,enteredAmount: event.target.value}
-    // })
+  const handleAmountClick = ({
+    target: { value },
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInput((prevState) => {
+      return { ...prevState, enteredAmount: value };
+    });
   };
 
-  const handleDateClick = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEnteredDate(event.target.value);
-    // setUserInput(()=>{
-    //   return {...userInput,enteredDate: event.target.value}
-    // })
+  const handleDateClick = ({
+    target: { value },
+  }: React.ChangeEvent<HTMLInputElement>) => {
+    setUserInput((prevState) => {
+      return { ...prevState, enteredDate: value };
+    });
   };
-
+  const { enteredTitle, enteredAmount, enteredDate } = userInput;
   const submitHandler = (event: React.ChangeEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     const expenseData = {
       title: enteredTitle,
       amount: +enteredAmount,
@@ -44,9 +47,11 @@ export const ExpenseForm = ({
 
     onSaveExpenseData(expenseData);
 
-    setEnteredTitle("");
-    setEnteredAmount("");
-    setEnteredDate("");
+    setUserInput({
+      enteredTitle: "",
+      enteredAmount: "",
+      enteredDate: "",
+    });
   };
 
   return (
@@ -71,7 +76,7 @@ export const ExpenseForm = ({
           <input
             type="date"
             min="2019-01-01"
-            max="2022-12-31"
+            max="2100-12-31"
             value={enteredDate}
             onChange={handleDateClick}
           />
